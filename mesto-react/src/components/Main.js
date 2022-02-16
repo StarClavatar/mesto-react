@@ -8,14 +8,12 @@ function Main(props) {
     const [userAvatar, setUserAvatar] = React.useState("");
     const [cards, setCards] = React.useState([]);
 
-    let userId
-
     React.useEffect(() => {
         //загружаем профиль пользователя и карточки 
         Promise.all([Api.getProfile(), Api.getInitialCards()])
             .then(([profile, cards]) => {
                 //отображаем информацию профиля    
-                userId = profile._id;
+                // userId = profile._id;
                 setUserName(profile.name);
                 setUserDescription(profile.about);
                 setUserAvatar(profile.avatar);

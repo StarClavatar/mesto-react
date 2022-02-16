@@ -5,7 +5,7 @@ function PopupWithForm(props) {
         //редактирование профиля
         <div className={`popup popup_type_${props.name} ${props.isOpen && 'popup_opened'}`} onClick={() => props.onClose()}>
             <div className="popup__container">
-                <form className="popup__input-form popup__form" name={'${props.name}-form'} novalidate>
+                <form className="popup__input-form popup__form" name={`${props.name}-form`} novalidate>
                     {props.children}
                 </form>
                 {/* крестик закрытия формы редактирования профиля  */}
