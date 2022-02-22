@@ -21,7 +21,7 @@ function Main(props) {
                 setCards(cards);
             })
             .catch(err => { console.log(err) })
-    });
+    },[]);
 
     return (
         //основной контент

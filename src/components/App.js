@@ -27,7 +27,7 @@ function App() {
     }
 
     return (
-        <body className="page">
+        <>
             <Header />
 
             <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick}/>
@@ -37,12 +37,12 @@ function App() {
                 <h2 className="popup__title">Редактировать профиль</h2>
                 {/* <!-- поле ввода с имененим профиля --> */}
                 <input id="name-input" className="popup__input popup__input_edit_title popup__input_error" name="username"
-                    type="text" placeholder="Имя" required minlength="2" maxlength="40"/>
+                    type="text" placeholder="Имя" required minLength="2" maxLength="40"/>
                 {/* <!-- подпись ошибки заполнения имени --> */}
                 <span id="name-input-error" className="popup__input-error">ошибка заполнения</span>
                 {/* <!-- поле ввода описания профиля  --> */}
                 <input id="job-input" className="popup__input popup__input_edit_short-description popup__input_error"
-                    name="about" type="text" placeholder="Описание" required minlength="2" maxlength="200"/>
+                    name="about" type="text" placeholder="Описание" required minLength="2" maxLength="200"/>
                 {/* <!-- подпись ошибки заполнения описания профиля --> */}
                 <span id="job-input-error" className="popup__input-error">ошибка заполнения</span>
                 {/* <!-- кнопка сохранить профиль --> */}
@@ -54,7 +54,7 @@ function App() {
                 <h2 className="popup__title">Новое место</h2>
                 {/* <!-- поле ввода названия --> */}
                 <input id="place-name-input" className="popup__input popup__input_edit_title popup__input_error" name="name"
-                    type="text" placeholder="Название места" required minlength="2" maxlength="30"/>
+                    type="text" placeholder="Название места" required minLength="2" maxLength="30"/>
                 {/* <!-- подпись с ошибкой заполнения названия фото --> */}
                 <span id="place-name-input-error" className="popup__input-error">ошибка заполнения</span>
                 {/* <!-- поле ввода url-адреса картинки --> */}
@@ -81,8 +81,7 @@ function App() {
             <ImagePopup link={selectedCard} onClose={closeAllPopups}/>
             
             <Footer />      
-          
-        </body>
+            </>
     );
 }
 
