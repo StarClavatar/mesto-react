@@ -5,7 +5,7 @@ import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode className="page">
+  <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
