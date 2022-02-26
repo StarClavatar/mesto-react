@@ -30,18 +30,18 @@ function Main(props) {
             <section className="profile">
                 <div className="profile__avatar-wrapper">
                     <img src={userAvatar} alt="аватар" className="profile__avatar"/>
-                    <button type="button" className="profile__avatar-edit-button" onClick={()=>props.onEditAvatar()}></button>
+                    <button type="button" className="profile__avatar-edit-button" onClick={props.onEditAvatar}></button>
                 </div>
                 <div className="profile__info">
                     <div className="profile__info-name">
                         <h1 className="profile__title">{userName}</h1>
                         <button type="button" className="profile__button profile__button_type_edit"
-                            title="Редактировать профиль" aria-label="Редактировать профиль" onClick={()=>props.onEditProfile()}></button>
+                            title="Редактировать профиль" aria-label="Редактировать профиль" onClick={props.onEditProfile}></button>
                     </div>
                     <p className="profile__short-description">{userDescription}</p>
                 </div>
                 <button type="button" className="profile__button profile__button_type_add" title="Добавить фото"
-                    aria-label="Добавить фото" onClick={()=>props.onAddPlace()}></button>
+                    aria-label="Добавить фото" onClick={props.onAddPlace }></button>
             </section>
             {/* <!-- секция с гридом всех фото --> */}
             <section className="elements-grid">
