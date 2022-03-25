@@ -1,18 +1,16 @@
-
+import React from 'react';
 
 function PopupWithForm(props) { 
 
     function handleOverlayClick(evt) {
-        if (evt.target===evt.currentTarget) {props.onClose()}
+        if (evt.target===evt.currentTarget) {props.onClose()};
     }
-
-
 
     return (
         //редактирование профиля
         <div className={`popup popup_type_${props.name} ${props.isOpen && 'popup_opened'}`} onClick={handleOverlayClick}>
             <div className="popup__container">
-                <form className="popup__input-form popup__form" name={`${props.name}-form`} noValidate>
+                <form className="popup__input-form popup__form" name={`${props.name}-form`} onSubmit={props.onSubmit} noValidate>
                     {/* заголовок формы */}
                     <h2 className="popup__title">{props.title}</h2>
                     {/* содержимое из родительского компонента */}

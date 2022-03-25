@@ -15,7 +15,11 @@
     right: 15px;
 }
 
+.element-grid__remove-button_hidden {
+    display: none;
+}
+
 .element-grid__remove-button:hover {
     opacity: .6;
     cursor: pointer;
-  }
+}

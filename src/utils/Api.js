@@ -108,9 +108,9 @@ class mestoApi {
     //обновляем статус карточки
     updateLikeStatus(cardId, isLiked) {
         if (isLiked) {
-            return this._removeLike(cardId);        
-        } else {
             return this._addLike(cardId);
+        } else {
+            return this._removeLike(cardId);        
         }
     }
 

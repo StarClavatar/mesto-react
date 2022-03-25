@@ -1,3 +1,4 @@
+import React from 'react';
 import Vector from '../images/Vector.svg';
 
 // import '../blocks/header/header.css'

@@ -1,3 +1,4 @@
+import React from 'react';
 // import '../blocks/footer/footer.css';
 // import '../blocks/footer/__copyright/footer__copyright.css';
 
