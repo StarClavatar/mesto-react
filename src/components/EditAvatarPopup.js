@@ -7,9 +7,19 @@ const avavtarUrl = React.useRef();
 
     function handleSubmit(e) {
         e.preventDefault();
-
         props.onUpdateAvatar(avavtarUrl.current.value);
     } 
+
+    React.useEffect(
+        ()=>{
+            clearInputs();
+            return (()=>{clearInputs()});
+        },[]
+    );
+
+    function clearInputs(){
+        document.getElementById('profile-img-input').value='';
+    }
 
     return (            
         <PopupWithForm 

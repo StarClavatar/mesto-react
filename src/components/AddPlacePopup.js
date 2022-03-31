@@ -8,11 +8,24 @@ function AddPlacePopup(props){
     function handleChangeName(e){setName(e.target.value)};
     function handleChangeLink(e){setLink(e.target.value)};
     
+    
     function handleSubmit(e) {
         e.preventDefault();
-
+        
         props.onAddPlace({name,link});
     } 
+    
+    React.useEffect(
+        ()=>{
+            clearInputs();
+            return (()=>{clearInputs()});
+        },[]
+    );
+
+    function clearInputs(){
+        setName('');
+        setLink('');
+    }
 
     return (
         <PopupWithForm 

@@ -8,7 +8,7 @@ function EditProfilePopup(props){
     React.useEffect(()=>{
         setName(currentUser.name);
         setDescription(currentUser.about);
-        },[currentUser]
+        },[currentUser, props.isOpen]
     );
 
     const [name, setName] = React.useState('');
@@ -41,7 +41,7 @@ function EditProfilePopup(props){
                 id="name-input" name="username"
                 className="popup__input popup__input_edit_title popup__input_error" 
                 type="text" placeholder="Имя" required minLength="2" maxLength="40"
-                value={name} onChange={handleChangeName}
+                value={name || ''} onChange={handleChangeName}
             />
             {/* <!-- подпись ошибки заполнения имени --> */}
             <span id="name-input-error" className="popup__input-error">ошибка заполнения</span>
@@ -51,7 +51,7 @@ function EditProfilePopup(props){
                 name="about" 
                 className="popup__input popup__input_edit_short-description popup__input_error"
                 type="text" placeholder="Описание" required minLength="2" maxLength="200"
-                value={description} onChange={handleChangeDescription}
+                value={description || ''} onChange={handleChangeDescription}
             />
             {/* <!-- подпись ошибки заполнения описания профиля --> */}
             <span id="job-input-error" className="popup__input-error">ошибка заполнения</span>

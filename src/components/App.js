@@ -8,36 +8,34 @@ import EditAvatarPopup from './EditAvatarPopup';
 import ImagePopup from './ImagePopup';
 import React from 'react';
 import Api from '../utils/Api';
-import { CurrentUserContext, UserInfo } from '../contexts/CurrentUserContext';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 
 function App() {
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
     const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+    const [currentUser, setCurrentUser] = React.useState({name:'',link:'',about:''});
     const [selectedCard, setSelectedCard] = React.useState(null);
-    const [currentUser, setCurrentUser] = React.useState(UserInfo);
     const [cards, setCards] = React.useState([]);
-
+    
     const handleEditProfileClick = () => { setIsEditProfilePopupOpen (true); } 
     const handleAddPlaceClick = () => { setIsAddPlacePopupOpen (true); } 
     const handleEditAvatarClick = () => { setIsEditAvatarPopupOpen(true); } 
     const handleCardClick = (link) => { setSelectedCard(link); }
 
-
     React.useEffect(
         ()=>{
-        //загружаем профиль пользователя и карточки 
-        Promise.all([Api.getProfile(), Api.getInitialCards()])
-            .then(([profile, cards]) => {
-                //отображаем информацию профиля    
-                setCurrentUser(profile);
-                //рисуем все карточки
-                setCards(cards);
+            //загружаем профиль пользователя и карточки 
+            Promise.all([Api.getProfile(), Api.getInitialCards()])
+                .then(([profile, cards]) => {
+                    //отображаем информацию профиля    
+                    setCurrentUser(profile);
+                    //рисуем все карточки
+                    setCards(cards);
             })
             .catch(err => { console.log(err) }); 
-        },
-        []
+        },[]
     );
         
     const closeAllPopups = () => {
@@ -82,7 +80,7 @@ function App() {
         // Отправляем запрос в API и получаем обновлённые данные карточки
         Api.updateLikeStatus(card._id, !isLiked)
         .then((newCard) => {
-            setCards(cards.map((c) => c._id === card._id ? newCard : c));
+            setCards((prevState)=>{return prevState.map((c) => c._id === card._id ? newCard : c)});
         })
         .catch(err=>console.log(err));
     } 
