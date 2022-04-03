@@ -12,13 +12,9 @@ const avavtarUrl = React.useRef();
 
     React.useEffect(
         ()=>{
-            document.getElementById('profile-img-input').value='';
+            avavtarUrl.current.value='';
         },[props.isOpen]
     );
-
-    function clearInputs(){
-        document.getElementById('profile-img-input').value='';
-    }
 
     return (            
         <PopupWithForm 
