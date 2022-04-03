@@ -17,16 +17,11 @@ function AddPlacePopup(props){
     
     React.useEffect(
         ()=>{
-            clearInputs();
-            return (()=>{clearInputs()});
-        },[]
+            setName('');
+            setLink('');
+        },[props.isOpen]
     );
-
-    function clearInputs(){
-        setName('');
-        setLink('');
-    }
-
+    
     return (
         <PopupWithForm 
             title="Новое место" 

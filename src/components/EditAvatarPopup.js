@@ -12,9 +12,8 @@ const avavtarUrl = React.useRef();
 
     React.useEffect(
         ()=>{
-            clearInputs();
-            return (()=>{clearInputs()});
-        },[]
+            document.getElementById('profile-img-input').value='';
+        },[props.isOpen]
     );
 
     function clearInputs(){
